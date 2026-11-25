@@ -1,0 +1,302 @@
+{
+ "schema": "readystack.recipe.v1",
+ "slug": "seaweedfs",
+ "tag": "4.55-CE-ubuntu24.04-r1",
+ "tarball": "ReadyStack-seaweedfs-4.55-CE-ubuntu24.04-r1.tar.gz",
+ "tarball_sha256": "1b34a976af699c874d698bc5e2a47508faaba19e4e4119dc49935edc8178bd6f",
+ "kit_root": "4.55-CE-ubuntu24.04-r1",
+ "generated_at": "2026-11-25T06:45:36Z",
+ "generator": "KitForge release/recipe_publish.py",
+ "dockerfile": "Dockerfile.offline.pinned",
+ "build_script": "BUILD_OFFLINE.sh",
+ "preview_lines": 24,
+ "pins": {
+  "upstream": {
+   "repo": "https://github.com/seaweedfs/seaweedfs",
+   "ref": "4.55",
+   "commit": "a98c9e27185cf1003eca095761a39973c60734db",
+   "url": "https://github.com/seaweedfs/seaweedfs/tree/a98c9e27185cf1003eca095761a39973c60734db",
+   "from": "docs/provenance/BUILD_RECIPE.json"
+  },
+  "fetches": [
+   {
+    "kind": "git",
+    "url": "https://github.com/seaweedfs/seaweedfs",
+    "ref": "4.55"
+   },
+   {
+    "kind": "http",
+    "url": "https://github.com/canonical/chisel/releases/download/v1.5.1/chisel_v1.5.1_linux_amd64.tar.gz"
+   },
+   {
+    "kind": "http",
+    "url": "https://github.com/canonical/chisel-releases/archive/f2600d3aa90123db6d44bb1441a99afc8b5847d9.tar.gz"
+   }
+  ],
+  "bases": [
+   {
+    "ref": "golang:1.26.11-bookworm@sha256:dc40a13b61304647ed7e5d581d246b86413dfc29d63c6d018310feb93cd98fc0",
+    "image": "golang:1.26.11-bookworm",
+    "digest": "sha256:dc40a13b61304647ed7e5d581d246b86413dfc29d63c6d018310feb93cd98fc0"
+   },
+   {
+    "ref": "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+    "image": "ubuntu:24.04",
+    "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+   }
+  ],
+  "toolchain": {
+   "buildkit": "moby/buildkit:v0.31.2",
+   "buildkit_image_digest": "sha256:e0e67ea9c4bb07bdef683e29f70f3b623d1eb9c82274a9ec04e6bb0511449fb0",
+   "builder_images": [
+    "golang:1.26.11-bookworm@sha256:dc40a13b61304647ed7e5d581d246b86413dfc29d63c6d018310feb93cd98fc0"
+   ]
+  },
+  "build_method": "source-rebuild-go",
+  "source_date_epoch": 1795577259,
+  "source_date_epoch_utc": "2026-11-25T03:27:39Z",
+  "target": {
+   "image_manifest_digest": "sha256:77407a338231feadb17d0bf6dfe43d9ece008f39e711109567a9d85014f0c5d8",
+   "config_digest": "sha256:906a845d72d56b06b44bbbd2641a7cf6d866f0d8eeaa6097ea55f3684f2a8103",
+   "image": "readystack/seaweedfs:4.55-CE-ubuntu24.04-r1"
+  },
+  "checksummed_files": 29506
+ },
+ "files": [
+  {
+   "path": "BASES.tsv",
+   "size": 264,
+   "sha256": "4b98a700d33a9f62c6299744be2f31889777ec9f3b1cf9150d02a25daa1a297d",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "BUILD_OFFLINE.sh",
+   "size": 8856,
+   "sha256": "6ab4f08a6ec775b32d854f03413b30ecfe555ddba78cf0de956235f5a2a39542",
+   "lines": 162,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "CHECKSUMS.sha256",
+   "size": 4287867,
+   "sha256": "49b4c73fea3ece4b158715eed9ed602e64067fece87393929546941a10f1f6a0",
+   "lines": 29506,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "DOCKERFILE_NAME.txt",
+   "size": 26,
+   "sha256": "9aadd1ede68e016a6f163c97befc5ff2fcdc8ebd4f84b108dba63cb195fa8c84",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "Dockerfile",
+   "size": 4302,
+   "sha256": "4da91fc365928f1236254207b9fe6e10cdd79bb28dd5f72d2e492a1bca1c63c8",
+   "lines": 57,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline",
+   "size": 4302,
+   "sha256": "4da91fc365928f1236254207b9fe6e10cdd79bb28dd5f72d2e492a1bca1c63c8",
+   "lines": 57,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline.pinned",
+   "size": 4302,
+   "sha256": "4da91fc365928f1236254207b9fe6e10cdd79bb28dd5f72d2e492a1bca1c63c8",
+   "lines": 57,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "Dockerfile.vendor",
+   "size": 6131,
+   "sha256": "fdfcf2c3e25def2fb40dcbd7a813d73f278dfde216c96905d69b0d509ff07090",
+   "lines": 47,
+   "public": "account"
+  },
+  {
+   "path": "FILE_MODES.tsv",
+   "size": 2734958,
+   "sha256": "bbe01fb817c767a0836a0ead7d13ae9c20aa2c58bf73a1b854857e3a12111749",
+   "lines": 34294,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "MANIFEST.txt",
+   "size": 2281489,
+   "sha256": "d8df14695cc8d9289a09d3e1e3043d99c07817df7fe454c13b5ba68188f803f6",
+   "lines": 29508,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "README.md",
+   "size": 3337,
+   "sha256": "429da90137f02a0d624899baeedef179d984b9d4217b27ff1ab75d00d50db002",
+   "lines": 40,
+   "public": "account"
+  },
+  {
+   "path": "SOURCE_DATE_EPOCH.txt",
+   "size": 11,
+   "sha256": "f890bbe4a6c9f814a54ffae5b7f8688efb161eee8304fec9379fe441824dc480",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "TARGET_DIGEST.txt",
+   "size": 358,
+   "sha256": "7b4fd5ba903f643b1c2b1a1ddcc79c72ef33ba1e8497f2cdc11b78e13ffbec1b",
+   "lines": 8,
+   "public": "full"
+  },
+  {
+   "path": "TRADEMARK.md",
+   "size": 478,
+   "sha256": "117ae8a469fb82a3a4f67977c6e552ee4f929061773d5118eda0737d861a7c1a",
+   "lines": 11,
+   "public": "account"
+  },
+  {
+   "path": "VERIFY_OFFLINE.sh",
+   "size": 10153,
+   "sha256": "3e8184ea230cfd8f41f977e26be6bf7bd03112c396c517837ce0c7de4f7399dd",
+   "lines": 165,
+   "public": "account"
+  },
+  {
+   "path": "docs/PROVENANCE.md",
+   "size": 2620,
+   "sha256": "7608710ceb16a547c785cf9c17aac393db7043aa26a6f07aa69e4f81298fd093",
+   "lines": 36,
+   "public": "account"
+  },
+  {
+   "path": "docs/REBUILD.md",
+   "size": 6093,
+   "sha256": "b5314ad76d741f780d7e246831ada59e327df4353721650a07c9f950a0f76722",
+   "lines": 60,
+   "public": "account"
+  },
+  {
+   "path": "docs/VERIFY.md",
+   "size": 2030,
+   "sha256": "21b735ecd32828df5bfad43e3bc7fdfb529f541a67fd7652739dff07a999355b",
+   "lines": 34,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/BASE_IMAGE_DIGESTS.lock",
+   "size": 75,
+   "sha256": "d5c400e51bf0b5393cf6c49ad96d1f0f55bca8239929fbd84d140f369750aabc",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/BUILD_RECIPE.json",
+   "size": 2692,
+   "sha256": "e6eb162135430cb089316088a72c14cf6d391292033ec337cc034036856df514",
+   "lines": 67,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/CUSTODY_INPUTS.json",
+   "size": 651,
+   "sha256": "1138842fb1b1103ca4b6be1cee6dd06675a77745ec5623ed18898e0289b65c82",
+   "lines": 17,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_FILE_MANIFEST.json",
+   "size": 234125,
+   "sha256": "a8e8dfb7c9ae08792453046c1323f69cf6f69134adb42ee9ab4072d4886b64b5",
+   "lines": 4889,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_TREE_HASH.json",
+   "size": 309,
+   "sha256": "a3b88491d4c2ed27e38ff06724f381088dbb26f4b50bcca5d0e31d5db06dffc2",
+   "lines": 9,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/SYSTEM_PINNING.lock",
+   "size": 470,
+   "sha256": "af5ed45b9d2e153569322e09bf9e71d361223bd6d78f84d893f966600c2d07f3",
+   "lines": 15,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/TOOLCHAIN.lock",
+   "size": 4369,
+   "sha256": "e831ec1608a5b3d85f094467db5cb758716cdf3c229f4bf908492e1748ed9658",
+   "lines": 105,
+   "public": "account"
+  },
+  {
+   "path": "readystack-entrypoint.sh",
+   "size": 5598,
+   "sha256": "3b985af5203eecd58bba5f88353de8f492fc519d4c095790664a2fd551728143",
+   "lines": 97,
+   "public": "account"
+  },
+  {
+   "path": "rebuild.json",
+   "size": 1526,
+   "sha256": "ff5735a7a6a2d63ecf6442e3f10b4c8f9acc2f46b108af07b9f51d2048f3d7f9",
+   "lines": 42,
+   "public": "account"
+  },
+  {
+   "path": "rs-probe.go",
+   "size": 6986,
+   "sha256": "2ec1a0f3dcc99fdf25e42dcd411f64ac71f49031487473db34ce407a6d6c4945",
+   "lines": 224,
+   "public": "account"
+  },
+  {
+   "path": "rs-probe.mod",
+   "size": 40,
+   "sha256": "a480b79acf98e4275725058076ad2a8684a2eee06c27f4337b75339c198ca92d",
+   "lines": 3,
+   "public": "account"
+  },
+  {
+   "path": "toolchain/BUILDKIT_TAG.txt",
+   "size": 22,
+   "sha256": "fcd530eeb02b063d2f047adad6eef896422a8e8d558513e5f09b2a262be32573",
+   "lines": 1,
+   "public": "full"
+  }
+ ],
+ "skipped": [],
+ "kit_adds": {
+  "bases": {
+   "files": 16,
+   "bytes": 326685578
+  },
+  "docs": {
+   "files": 4941,
+   "bytes": 189912486
+  },
+  "toolchain": {
+   "files": 1,
+   "bytes": 111529472
+  },
+  "vendored": {
+   "files": 24520,
+   "bytes": 555435931
+  }
+ },
+ "redacted_files": 0
+}

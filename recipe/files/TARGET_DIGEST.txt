@@ -1,0 +1,8 @@
+image_manifest_digest=sha256:77407a338231feadb17d0bf6dfe43d9ece008f39e711109567a9d85014f0c5d8
+config_digest=sha256:906a845d72d56b06b44bbbd2641a7cf6d866f0d8eeaa6097ea55f3684f2a8103
+tag=readystack/seaweedfs:4.55-CE-ubuntu24.04-r1
+probe_port=8333
+probe_path=/healthz
+probe_timeout=180
+verify_secret=SEAWEEDFS_S3_ACCESS_KEY
+verify_secret=SEAWEEDFS_S3_SECRET_KEY

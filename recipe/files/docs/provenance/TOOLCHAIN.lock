@@ -1,0 +1,105 @@
+{
+  "binaries_from_source": [
+    {
+      "build_flags": [
+        "-trimpath",
+        "-buildvcs=false"
+      ],
+      "build_tags": [],
+      "cgo_enabled": 0,
+      "ldflags": "-s -w -extldflags -static -X github.com/seaweedfs/seaweedfs/weed/util/version.COMMIT=@VERSION_BARE@",
+      "main_pkg": "./weed",
+      "module": "github.com/seaweedfs/seaweedfs",
+      "module_dir": ".",
+      "name": "weed",
+      "out_path": "/usr/bin/weed",
+      "verify_subcmd": "version"
+    }
+  ],
+  "build_method": "source-rebuild-go",
+  "chain_id": 1241,
+  "dep_bumps": [
+    {
+      "module": "github.com/rclone/rclone",
+      "to": "v1.75.0",
+      "why": "GHSA-2m8m-jhrm-w6j2 (HIGH) \u2014 github.com/rclone/rclone 1.74.3 is in the vulnerable range; fixed in 1.75.0. Found by scripts/cve-presweep.py against the upstream go.mod BEFORE driving, not after a wasted verdict park. Pinned to the exact fixed version, not @latest, to keep the input set declarative for archive-forward reproducibility."
+    },
+    {
+      "module": "google.golang.org/grpc",
+      "to": "v1.83.2",
+      "why": "GHSA-hrxh-6v49-42gf (HIGH) \u2014 google.golang.org/grpc 1.81.1 is in the vulnerable range; fixed in 1.82.1. Found by scripts/cve-presweep.py against the upstream go.mod BEFORE driving, not after a wasted verdict park. Pinned to the exact fixed version, not @latest, to keep the input set declarative for archive-forward reproducibility. | RAISED to v1.83.2 2026-09-30 (minio chain 468 verdict)"
+    },
+    {
+      "module": "golang.org/x/image",
+      "to": "v0.45.0"
+    },
+    {
+      "module": "golang.org/x/net",
+      "to": "v0.62.0",
+      "why": "CVE-2026-78661 (HIGH): golang.org/x/net 0.61.0, the version seaweedfs 4.52's go.mod requires, is in the vulnerable range (< 0.62.0); fixed in 0.62.0. Found by the verdict of chain 813 (Docker Scout CLI, 2026-11-05). This entry was the fleet-wide v0.60.0 floor of 2026-10-10 (Go 1.26.9 companion), which 4.52's own requirement already cleared."
+    },
+    {
+      "module": "github.com/klauspost/compress",
+      "to": "v1.18.7",
+      "why": "CVE-2026-63209 (GHSA-259r-337f-4rfw, HIGH per GitHub; Scout rates it lower) \u2014 OSV cross-check on zitadel 516 and harbor 519; fleet-wide floor 2026-10-10"
+    },
+    {
+      "module": "github.com/go-jose/go-jose/v4",
+      "to": "v4.1.6",
+      "why": "GHSA-mgcc-cww5-fp2q / CVE-2026-116587 (high, published 2026-10-27): github.com/go-jose/go-jose/v4 v4.1.4 -> v4.1.6 (scripts/cve-floor.py)"
+    },
+    {
+      "module": "github.com/apache/thrift",
+      "to": "v0.25.0",
+      "why": "CVE-2026-63772, CVE-2026-66055, CVE-2026-82458, CVE-2026-83663 \u2026: github.com/apache/thrift v0.24.0 -> 0.25.0"
+    }
+  ],
+  "expected_residuals": [],
+  "images": [
+    {
+      "digest": "sha256:dc40a13b61304647ed7e5d581d246b86413dfc29d63c6d018310feb93cd98fc0",
+      "ref": "golang:1.26.11-bookworm",
+      "role": "builder"
+    },
+    {
+      "digest": "sha256:dc40a13b61304647ed7e5d581d246b86413dfc29d63c6d018310feb93cd98fc0",
+      "ref": "golang:1.26.11-bookworm",
+      "role": "offline_builder"
+    },
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "base"
+    }
+  ],
+  "mod_replaces": [],
+  "runtime_base": {
+    "kind": "chisel",
+    "rs_probe_sigv4": true,
+    "shell": true,
+    "tools": [
+      "grep",
+      "tar"
+    ]
+  },
+  "schema": "kitforge.toolchain_lock.v1",
+  "slug": "seaweedfs",
+  "source": {
+    "build_env": {
+      "GOFLAGS": "-mod=mod",
+      "GOTOOLCHAIN": "local"
+    },
+    "builder_image": "golang:1.26.11-bookworm",
+    "commit": "a98c9e27185cf1003eca095761a39973c60734db",
+    "commit_epoch": 1795402865,
+    "go_module_root": "github.com/seaweedfs/seaweedfs",
+    "go_version_required": "1.25",
+    "multi_module": false,
+    "ref": "4.55",
+    "repo": "https://github.com/seaweedfs/seaweedfs",
+    "source_date_epoch": 1795577259,
+    "source_date_epoch_basis": "release-cut",
+    "source_date_epoch_provenance": "the time release 4.55-CE-ubuntu24.04-r1 was cut (2026-11-25T03:27:39Z), by scripts/retarget.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit a98c9e27185c, dated 2026-11-23T03:01:05Z (source.commit_epoch)."
+  },
+  "version": "4.55"
+}

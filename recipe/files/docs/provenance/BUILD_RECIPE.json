@@ -1,0 +1,67 @@
+{
+  "schema": "kitforge.build_recipe.v1",
+  "slug": "seaweedfs",
+  "image": "readystack/seaweedfs:4.55-CE-ubuntu24.04-r1",
+  "build_method": "source-rebuild-go",
+  "source": {
+    "repo": "https://github.com/seaweedfs/seaweedfs",
+    "ref": "4.55",
+    "builder_image": "golang:1.26.11-bookworm",
+    "go_module_root": "github.com/seaweedfs/seaweedfs",
+    "go_version_required": "1.25",
+    "multi_module": false,
+    "build_env": {
+      "GOFLAGS": "-mod=mod",
+      "GOTOOLCHAIN": "local"
+    },
+    "_build_note": "SINGLE Go module (go.mod at root = github.com/seaweedfs/seaweedfs) whose `weed` main package lives in the weed/ SUBDIR -> main_pkg is the package path ./weed built from the module root (go build ./weed). NO codegen for the offline build: the protobuf .pb.go AND the templ-generated *_templ.go (Admin UI) are COMMITTED in-tree (.gitignore ignores neither), so protoc/templ are NOT needed. DO NOT run the Makefile admin-generate/install-templ targets \u2014 they fetch github.com/a-h/templ over the network (breaks --network=none); build the weed package directly. a-h/templ is a normal go.mod require (the committed _templ.go imports it at runtime) and vendors cleanly. CGO off -> fully static binary.",
+    "source_date_epoch": 1795577259,
+    "source_date_epoch_provenance": "the time release 4.55-CE-ubuntu24.04-r1 was cut (2026-11-25T03:27:39Z), by scripts/retarget.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit a98c9e27185c, dated 2026-11-23T03:01:05Z (source.commit_epoch).",
+    "commit": "a98c9e27185cf1003eca095761a39973c60734db",
+    "source_date_epoch_basis": "release-cut",
+    "commit_epoch": 1795402865
+  },
+  "binaries_from_source": [
+    {
+      "name": "weed",
+      "module": "github.com/seaweedfs/seaweedfs",
+      "module_dir": ".",
+      "main_pkg": "./weed",
+      "cgo_enabled": 0,
+      "build_tags": [],
+      "build_flags": [
+        "-trimpath",
+        "-buildvcs=false"
+      ],
+      "ldflags": "-s -w -extldflags -static -X github.com/seaweedfs/seaweedfs/weed/util/version.COMMIT=@VERSION_BARE@",
+      "out_path": "/usr/bin/weed",
+      "verify_subcmd": "version"
+    }
+  ],
+  "runtime_packages": [
+    "base-files",
+    "base-passwd",
+    "ca-certificates",
+    "coreutils",
+    "dash",
+    "grep",
+    "libacl1",
+    "libc6",
+    "libpcre2-8-0",
+    "libselinux1",
+    "libssl3t64",
+    "openssl",
+    "tar",
+    "tzdata"
+  ],
+  "runtime_base": {
+    "kind": "chisel",
+    "shell": true,
+    "tools": [
+      "grep",
+      "tar"
+    ],
+    "rs_probe_sigv4": true,
+    "packages": "vendored/chisel/packages.tsv"
+  }
+}

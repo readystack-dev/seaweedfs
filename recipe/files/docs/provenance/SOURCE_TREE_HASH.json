@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "seaweedfs",
+  "repo": "https://github.com/seaweedfs/seaweedfs",
+  "ref": "4.55",
+  "commit": "a98c9e27185cf1003eca095761a39973c60734db",
+  "tree_listing_sha256": "75b8121e89576c88cc9a39cb681f656b567968282b0182a0e48e4628bb1d0e2a",
+  "file_count": 4882
+}
